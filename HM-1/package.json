@@ -1,0 +1,24 @@
+{
+  "name": "hm-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "task1.js",
+  "scripts": {
+    "task1": "nodemon task1.js",
+    "task2": "nodemon task-2.js",
+    "task1-t": "nodemon ./dist/task1.js",
+    "task2-t": "nodemon ./dist/task-2.js",
+    "babel": "babel task1.js task-2.js -d dist --presets es2015",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.7.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "csvtojson": "^2.0.10",
+    "nodemon": "^1.19.4"
+  }
+}
