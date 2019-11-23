@@ -5,10 +5,10 @@
   "main": "task1.js",
   "scripts": {
     "task1": "nodemon task1.js",
-    "task2": "nodemon task-2.js",
+    "task2": "node task-2.js",
     "task1-t": "nodemon ./dist/task1.js",
-    "task2-t": "nodemon ./dist/task-2.js",
-    "babel": "babel task1.js task-2.js -d dist --presets es2015",
+    "task2-t": "node ./dist/task-2.js",
+    "babel": "babel ./es6-modules -d dist --presets es2015",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
