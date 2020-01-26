@@ -1,8 +1,10 @@
+import path from 'path';
 const { Pool } = require('pg');
-const conString = 'postgres://qgbzizer:olDZG7yx2EWGGhecjkfV1uxfomk33MVX@balarama.db.elephantsql.com:5432/qgbzizer';
+
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const pool = new Pool({
-    connectionString: conString
+    connectionString: process.env.DB_CONN
 });
 
 pool.connect();
