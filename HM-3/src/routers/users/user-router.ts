@@ -4,7 +4,7 @@ import { UserService } from '../../services/user-service';
 export const userRouter: Router = Router();
 const userService: UserService = new UserService();
 
-userRouter.get('/user', async (req, res) => {
+userRouter.get('/', async (req, res) => {
     try {
         const users =  await userService.getAllUsers();
         res.json({ users });
@@ -13,16 +13,21 @@ userRouter.get('/user', async (req, res) => {
     }
 });
 
-userRouter.get('/user/:id', async (req, res) => {
+userRouter.get('/:id', async (req, res) => {
     const userID = req.params.id;
-    const user = await userService.getUserById(userID);
-    if (!user.length) {
-        res.status(404).send(`User with id ${userID} not found`);
+
+    try {
+        const user = await userService.getUserById(userID);
+        if (!user.length) {
+            res.status(404).send(`User with id ${userID} not found`);
+        }
+        res.json(user);
+    } catch (e) {
+        res.status(500).send(e);
     }
-    res.json(user);
 });
 
-userRouter.post('/user', async (req, res) => {
+userRouter.post('/', async (req, res) => {
     try {
         await userService.createUser(req.body);
     } catch (e) {
@@ -31,7 +36,7 @@ userRouter.post('/user', async (req, res) => {
     res.status(201).send(req.body);
 });
 
-userRouter.put('/user/:id', async (req, res) => {
+userRouter.put('/:id', async (req, res) => {
     const userID = req.params.id;
     try {
         await userService.updateUser(userID, req.body);
@@ -41,7 +46,7 @@ userRouter.put('/user/:id', async (req, res) => {
     }
 });
 
-userRouter.delete('/user/:id', async (req, res) => {
+userRouter.delete('/:id', async (req, res) => {
     const userID = req.params.id;
     try {
         await userService.delateUser(userID);
@@ -51,7 +56,7 @@ userRouter.delete('/user/:id', async (req, res) => {
     }
 });
 
-userRouter.get('/users',  async (req, res) => {
+userRouter.get('/name',  async (req, res) => {
     const queries = req.query;
     try {
         const foundedUser =  await userService.findUserBySubString(queries['loginSubstring']);
