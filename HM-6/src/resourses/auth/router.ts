@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import { findUsersByLogin } from '../helpers/find-user-by-login';
 import { User } from '../users/model';
-import { sign } from "jsonwebtoken";
+import { sign } from 'jsonwebtoken';
 import { randomBytes } from 'crypto';
 
 export let secretKey: string;
-randomBytes(48, function(err: any, buffer: any) {
+randomBytes(48, (err: any, buffer: any) => {
     secretKey = buffer.toString('hex');
 });
 

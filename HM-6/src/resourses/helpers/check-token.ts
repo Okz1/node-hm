@@ -9,7 +9,7 @@ export function checkToken(req: any, res: any, next: any) {
                 res.status(403).send({
                     success: false,
                     message: 'Failed to authenticate bad toke.'
-                })
+                });
             } else {
                 next();
             }
@@ -18,6 +18,6 @@ export function checkToken(req: any, res: any, next: any) {
         res.status(401).send({
             success: false,
             message: 'No token provided.'
-        })
+        });
     }
 }

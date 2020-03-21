@@ -4,7 +4,7 @@ import { appLogger } from './resourses/helpers/winston-logger';
 import { authRouter } from './resourses/auth/router';
 import { checkToken } from './resourses/helpers/check-token';
 const cors = require('cors');
-const app: Application = express();
+export const app: Application = express();
 
 app.use(express.json());
 app.use(cors());

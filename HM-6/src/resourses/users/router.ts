@@ -16,7 +16,7 @@ userRouter.get('/user/:id', (req, res) => {
         winstonLogger(`User with id ${ userID } not found`, 404, userID);
         res.status(404).send(`User with id ${userID} not found`);
     }
-    res.json(currentUser);
+    res.status(200).json(currentUser);
 });
 
 userRouter.post('/user', userValidator.body(userSchema), (req, res) => {
