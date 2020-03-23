@@ -3,7 +3,7 @@ import { USERS } from '../user-storage/user-list';
 import { findUsersByStr } from '../helpers/find-users-by-str';
 const request = require('supertest');
 
-describe('USer Endpoints', () => {
+describe('User Endpoints', () => {
     it('should return user', async () => {
         const res = await request(app).get('/user/1');
 
